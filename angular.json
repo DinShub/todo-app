@@ -25,7 +25,10 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+<<<<<<< HEAD
               "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+=======
+>>>>>>> 81b39b8e7dc61d407ff65ca11c32415cf901a6d3
               "src/styles.css"
             ],
             "scripts": []
