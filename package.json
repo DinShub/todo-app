@@ -19,12 +19,8 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
-<<<<<<< HEAD
     "@fortawesome/fontawesome-free": "^5.15.1",
     "bootstrap": "^4.5.3",
-=======
-    "bootstrap": "^3.4.1",
->>>>>>> 81b39b8e7dc61d407ff65ca11c32415cf901a6d3
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
