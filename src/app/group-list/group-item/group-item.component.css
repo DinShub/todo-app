@@ -1,0 +1,19 @@
+
+h3 {
+    margin-left: 10px;
+    display: inline;
+}
+
+p {
+    margin: 0;
+    margin-left: 13px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #4d4d4d;
+}
+
+li {
+    background-color: transparent;
+    border-style: none;
+    display: inline;
+}

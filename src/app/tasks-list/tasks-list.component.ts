@@ -12,4 +12,13 @@ export class TasksListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // The function to highlight the selected category
+  onClick(ev: any): void {
+    console.log(ev.target.parentNode.children);
+    for (const child of ev.target.parentNode.children) {
+      child.classList.remove('li-active');
+    }
+    ev.target.classList.add('li-active');
+  }
+
 }

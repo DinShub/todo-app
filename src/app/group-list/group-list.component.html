@@ -1,4 +1,15 @@
-<button class="btn btn-outline-danger" style="margin-left: 270px;">test</button>
-<h1 style="margin-top: 20px;">Groups</h1>
+<!-- Add a group button TODO: Add functionality -->
+<button class="btn btn-outline-danger">
+    <i class="fas fa-plus"></i>
+</button>
+
+<!-- The list with the groups
+     For loop to get all the groups from the var groups
+     Each group spawns the app-group-item component -->
+<ul class="list-group">
+    <app-group-item class="group-list-item" *ngFor="let group of groups" [group]="group"></app-group-item>
+
+</ul>
+
 
 

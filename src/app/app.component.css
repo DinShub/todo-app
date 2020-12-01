@@ -1,7 +1,18 @@
 #navbar {
-    background-color: #3333ff;
+    background-color: #3333cc;
+    min-width: 120px;
+    text-align: center;
 }
 
 .groupsList {
     background-color: #f2f2f2;
+    max-width: 18%;
+}
+
+@media (max-width: 576px) {
+    .col-sm-1 {
+        text-align: center;
+        min-width: 50px;
+        max-height: 150px;
+    }
 }

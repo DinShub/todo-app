@@ -1,0 +1,53 @@
+.navbar {
+    margin-top: 35px;
+    margin-left: 20px;
+    min-width: 120px;
+}
+
+.navbaricon {
+    color: white;
+    font-size: 30px;
+}
+
+.navbaricon:hover {
+    color: #ffff4d;
+}
+
+.active {
+    color: #ffff4d;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+li {
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .navbar, .navbaricon {
+        font-size: 30px;
+        list-style: none;
+        display: block;
+        list-style-type: none;
+        float: left;
+        margin-right: 10px;
+        margin-top: 0;
+        margin-left: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .navbar {
+        margin: 0;
+    }
+}

@@ -1,4 +1,25 @@
-<div class="col-7">
-    <h1>Tasks</h1>
+<!-- The Search bar maybe a new component?? -->
+<div class="search-div">
+    <input type="text" class="form-control search" style="font-family: 'Font Awesome 5';font-weight: 900;" placeholder="&#xf002; Search Here">
 
+    <!-- The modal to add tasks TODO: Add the functionality -->
+    <app-modal-task class="add-task"></app-modal-task>
 </div>
+
+<!-- The Task list -->
+<div class="task-list">
+
+    <!-- The Group Name TODO: Take it from the group list -->
+    <h2>Group List Text</h2>
+    
+    <!-- The Task list actual TODO: add functionality to get the tasks from the group -->
+    <ul>
+        <li (click)="onClick($event)">All</li>
+        <li (click)="onClick($event)">Not Yet Completed</li>
+        <li (click)="onClick($event)">Finished</li>
+    </ul>
+    <hr>
+</div>
+
+
+

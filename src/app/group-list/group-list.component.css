@@ -1,0 +1,38 @@
+.btn {
+    border-radius: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 20px;
+    margin-top: 40px;
+    position: absolute;
+    right: 0;
+}
+
+/* li {
+    background-color: transparent;
+    border-style: none;
+    display: inline;
+} */
+
+ul {
+    position: relative;
+    list-style: none;
+    margin-top: 85px;
+    margin-left: 0;
+    padding-left: 1em; 
+}
+
+ul app-group-item:before {
+    content: "\f111";
+    margin-top: 5px;
+    margin-right: 10px; 
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    left: 0;
+    color: green;
+    font-style: bold;
+}
+
+.group-list-item {
+    margin-bottom: 20px;
+}
