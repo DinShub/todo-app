@@ -9,6 +9,7 @@ import { GroupItemComponent } from './group-list/group-item/group-item.component
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalTaskComponent } from './tasks-list/modal-task/modal-task.component';
+import { TaskComponent } from './tasks-list/task/task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ModalTaskComponent } from './tasks-list/modal-task/modal-task.component
     GroupListComponent,
     TasksListComponent,
     GroupItemComponent,
-    ModalTaskComponent
+    ModalTaskComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,11 @@
         <li (click)="onClick($event)">Finished</li>
     </ul>
     <hr>
+
+    <div class="row">
+        <div class="col-4" *ngFor="let task of tasks"><app-task></app-task></div>
+
+    </div>
 </div>
 
 
