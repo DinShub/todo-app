@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalTaskComponent } from './tasks-list/modal-task/modal-task.component';
 import { TaskComponent } from './tasks-list/task/task.component';
+import { GroupTaskService } from './group-list/group-task.service';
+import { ModalGroupComponent } from './group-list/modal-group/modal-group.component';
+import { TaskViewModalComponent } from './tasks-list/task/task-view-modal/task-view-modal.component';
+import { TaskService } from './tasks-list/task.service';
 
 @NgModule({
   declarations: [
@@ -19,13 +23,16 @@ import { TaskComponent } from './tasks-list/task/task.component';
     TasksListComponent,
     GroupItemComponent,
     ModalTaskComponent,
-    TaskComponent
+    TaskComponent,
+    ModalGroupComponent,
+    TaskViewModalComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [GroupTaskService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

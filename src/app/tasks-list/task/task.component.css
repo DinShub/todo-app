@@ -1,0 +1,23 @@
+.btn {
+    border-radius: 25px;
+}
+
+p {
+    font-size: 13px;
+}
+
+.TODO {
+    color: #0099ff;
+}
+
+.done {
+    color: #00b300;
+}
+
+.doing {
+    color: #ffd633;
+}
+
+.cancelled {
+    color: #ffcc00;
+}

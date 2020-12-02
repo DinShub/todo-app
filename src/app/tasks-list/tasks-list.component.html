@@ -3,14 +3,14 @@
     <input type="text" class="form-control search" style="font-family: 'Font Awesome 5';font-weight: 900;" placeholder="&#xf002; Search Here">
 
     <!-- The modal to add tasks TODO: Add the functionality -->
-    <app-modal-task class="add-task"></app-modal-task>
+    <app-modal-task class="add-task" [group]="group"></app-modal-task>
 </div>
 
 <!-- The Task list -->
 <div class="task-list">
 
     <!-- The Group Name TODO: Take it from the group list -->
-    <h2>Group List Text</h2>
+    <h2 *ngIf="group">{{ group.name }}</h2>
     
     <!-- The Task list actual TODO: add functionality to get the tasks from the group -->
     <ul>
@@ -20,9 +20,8 @@
     </ul>
     <hr>
 
-    <div class="row">
-        <div class="col-4" *ngFor="let task of tasks"><app-task></app-task></div>
-
+    <div class="row" *ngIf="group">
+        <div class="col-4" *ngFor="let elTask of group.tasks"><app-task [task] = "elTask"></app-task></div>
     </div>
 </div>
 

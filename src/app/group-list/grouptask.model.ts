@@ -1,6 +1,11 @@
-export class TaskGroup {
+import { Task } from '../tasks-list/task.model';
 
-    // The model (object) of the Task Group
+export interface TaskGroup {
 
-    constructor(public name: string, public items: string[]) {}
+    // The interface (object) of the Task Group
+    name: string;
+    items: string[];
+    tasks: Task[];
+    color: string;
+
 }

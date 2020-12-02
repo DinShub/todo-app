@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TaskGroup } from '../group-list/grouptask.model';
 
 @Component({
   selector: 'app-navbar',

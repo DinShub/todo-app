@@ -1,0 +1,26 @@
+<ng-template #taskviewmodal let-modal>
+
+    <!-- The Modal Header -->
+    <div class="modal-header">
+        <h4 class="modal-title">{{ task.name }}</h4>
+        <button class="btn btn-danger" (click)="modal.dismiss()">&times;</button>
+    </div>
+
+    <!-- The Modal Body -->
+    <div class="modal-body">
+        <h5 style="display: inline;">Group: </h5><p style="display: inline;">{{ task.groupName }}</p> <br>
+        <h5>Sub Group: </h5><p>{{ task.item }}</p> <br>
+        <h5>Description: </h5><p>{{ task.description }}</p> <br>
+        <h5>Status: </h5><p>{{ task.status }}</p> <br>
+        <h6 style="display: inline;">Date: </h6><p style="font-size: 13px;">{{ task.date }}</p>
+    </div>
+
+    <!-- The Modal Footer -->
+    <div class="modal-footer">
+        <button class="btn btn-primary" (click)="modal.close()">Close</button>
+        <button class="btn btn-outline-danger" (click)="deleteTask()">Delete</button>
+    </div>
+
+
+
+</ng-template>

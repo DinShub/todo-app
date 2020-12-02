@@ -1,0 +1,37 @@
+.addInput {
+    margin-left: 10px;
+    margin-top: 0;
+    display: inline;
+    cursor: pointer;
+}
+
+.colorItem {
+    cursor: pointer;
+}
+
+#dropdownBasic1 {
+    margin-left: 75px;
+    padding: 1px;
+}
+
+.subGroupInput {
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.forInput {
+    display: inline;
+}
+
+input {
+    margin-left: 70px;
+    width: 300px;
+    display: inline;
+    margin-bottom: 20px;
+}
+
+.subGroupInput {
+    margin-left: 55px;
+    width: 300px;
+    margin-right: 0;
+}

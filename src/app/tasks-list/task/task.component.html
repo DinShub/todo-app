@@ -1,1 +1,10 @@
-<h1>Test</h1>
+<div class="card">
+    <div class="card-body" (click)="viewTask($event)">
+        <app-task-view-modal #modal></app-task-view-modal>
+        <h6 class="title" [ngClass]="getStatus()">{{ task.status | uppercase }}</h6>
+        <h4 class="card-subtitle mb-2">{{ task.name }}</h4>
+        <p class="card-subtitle-mb2 text-muted">{{ task.date | date:"MM/dd/yyyy HH:mm" }}</p>
+        <a class="btn btn-outline-danger" *ngIf="task.status === 'doing'" (click)="finishTask()">Mark As Done</a>
+        <a class="btn btn-outline-danger" *ngIf="task.status === 'TODO'" (click)="startTask()">Start Task</a>
+    </div>
+</div>

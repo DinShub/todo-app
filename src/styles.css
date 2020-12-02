@@ -2,3 +2,9 @@
 html,body {
     height: 100%;
 }
+
+.subGroupInput {
+    margin-left: 55px;
+    width: 300px;
+    margin-right: 0;
+}

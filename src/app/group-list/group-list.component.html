@@ -1,13 +1,11 @@
 <!-- Add a group button TODO: Add functionality -->
-<button class="btn btn-outline-danger">
-    <i class="fas fa-plus"></i>
-</button>
+<app-modal-group class="add-group"></app-modal-group>
 
 <!-- The list with the groups
      For loop to get all the groups from the var groups
      Each group spawns the app-group-item component -->
 <ul class="list-group">
-    <app-group-item class="group-list-item" *ngFor="let group of groups" [group]="group"></app-group-item>
+    <app-group-item class="group-list-item" *ngFor="let elGroup of groups" [group]="elGroup" (click)="chooseGroup(elGroup)" [ngClass]="elGroup.color"></app-group-item>
 
 </ul>
 

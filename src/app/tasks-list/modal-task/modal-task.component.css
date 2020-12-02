@@ -1,0 +1,16 @@
+#dropdownBasic1 {
+    margin-left: 72px;
+    padding: 5px;
+    margin-top: 0;
+}
+
+input {
+    margin-left: 70px;
+    width: 300px;
+    display: inline;
+    margin-bottom: 20px;
+}
+
+#description {
+    margin-left: 66px;
+}

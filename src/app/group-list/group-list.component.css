@@ -1,4 +1,4 @@
-.btn {
+.add-group {
     border-radius: 25px;
     padding-left: 25px;
     padding-right: 25px;
@@ -29,8 +29,15 @@ ul app-group-item:before {
     font-family: "Font Awesome 5 Free";
     position: absolute;
     left: 0;
-    color: green;
-    font-style: bold;
+    
+}
+
+ul app-group-item.lime:before {
+    color: lime;
+}
+
+ul app-group-item.cyan:before {
+    color: cyan;
 }
 
 .group-list-item {
