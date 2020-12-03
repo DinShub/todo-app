@@ -16,6 +16,7 @@ export class TaskService {
 
     openTask(task: Task): void {
         this.viewTask.emit(task);
+        console.log("open task event");
     }
 
     updateTask(task: Task): void {

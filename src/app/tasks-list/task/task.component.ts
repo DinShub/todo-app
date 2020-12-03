@@ -22,7 +22,8 @@ export class TaskComponent implements OnInit {
   // The function to open the modal with the task information
   viewTask(ev): void {
     console.log(ev);
-    if (ev.target.tagName !== 'A' ) {
+    if (ev.target.tagName !== 'A' && this.task) {
+      console.log("open modal");
       this.taskService.openTask(this.task);
      }
   }
