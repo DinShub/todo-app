@@ -30,9 +30,13 @@ export class TaskViewModalComponent implements OnInit, OnDestroy {
 
   // The function to open the modal
   open(task: Task): void {
-    this.task = task;
+    console.log(`open task! ${this.task.name} against ${task.name}`);
+    if (this.task.name === task.name) {
+      this.modalService.open(this.content);
+    }
+    //this.task = task;
     console.log(this.task);
-    this.modalService.open(this.content);
+    
   }
 
   // The function of the user deletes the task

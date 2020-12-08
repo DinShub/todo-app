@@ -6,6 +6,5 @@ export interface TaskGroup {
     name: string;
     items: string[];
     tasks: Task[];
-    color: string;
 
 }

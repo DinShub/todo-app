@@ -22,6 +22,7 @@ ul {
     padding-left: 1em; 
 }
 
+
 ul app-group-item:before {
     content: "\f111";
     margin-top: 5px;
@@ -29,15 +30,10 @@ ul app-group-item:before {
     font-family: "Font Awesome 5 Free";
     position: absolute;
     left: 0;
-    
 }
 
-ul app-group-item.lime:before {
-    color: lime;
-}
-
-ul app-group-item.cyan:before {
-    color: cyan;
+.selected:before {
+    font-weight: 900;
 }
 
 .group-list-item {

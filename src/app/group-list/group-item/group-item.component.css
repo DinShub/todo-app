@@ -7,7 +7,7 @@ h3 {
 p {
     margin: 0;
     margin-left: 13px;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
     color: #4d4d4d;
 }
@@ -16,4 +16,9 @@ li {
     background-color: transparent;
     border-style: none;
     display: inline;
+}
+
+.highlight {
+    font-weight: 500;
+    text-decoration: underline;
 }

@@ -14,6 +14,7 @@ import { GroupTaskService } from './group-list/group-task.service';
 import { ModalGroupComponent } from './group-list/modal-group/modal-group.component';
 import { TaskViewModalComponent } from './tasks-list/task/task-view-modal/task-view-modal.component';
 import { TaskService } from './tasks-list/task.service';
+import { ModalGroupViewComponent } from './group-list/modal-group-view/modal-group-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TaskService } from './tasks-list/task.service';
     ModalTaskComponent,
     TaskComponent,
     ModalGroupComponent,
-    TaskViewModalComponent
+    TaskViewModalComponent,
+    ModalGroupViewComponent
   ],
   imports: [
     BrowserModule,

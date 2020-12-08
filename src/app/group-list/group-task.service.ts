@@ -41,6 +41,9 @@ export class GroupTaskService {
         'cyan'
     ];
 
+    // What group item is selected
+    private chosenItem = '';
+
     // The event if a user presses on a group to view it
     chosenGroupEvent = new EventEmitter<TaskGroup>();
 
@@ -49,6 +52,8 @@ export class GroupTaskService {
 
     // The event if a user adds a new group
     addGroupEvent = new EventEmitter<TaskGroup[]>();
+
+    editGroupEvent = new EventEmitter<TaskGroup>();
 
     constructor(private taskService: TaskService) {
         // The event if a task was updated
@@ -72,6 +77,11 @@ export class GroupTaskService {
         }
     }
 
+    // Gets the chosen item
+    getItem(): string {
+        return this.chosenItem;
+    }
+
     // Function that returns a copy of the colors array
     getColors(): string[] {
         return this.colors.slice();
@@ -79,13 +89,26 @@ export class GroupTaskService {
 
     // Function to emit the chosenGroupEvent
     emitChosenGroup(group: TaskGroup): void {
+        this.chosenItem = '';
+        this.chosenItemEvent.emit(this.chosenItem);
         this.chosenGroupEvent.emit(group);
     }
 
     // Function to emit the chosenItemEvent
-    emitChosenItem(item: string): void {
+    emitChosenItem(item: string, group: TaskGroup): void {
+        this.chosenItem = item;
+        console.log(`Emit chosen Item ${item}`);
+        this.chosenGroupEvent.emit(group);
         this.chosenItemEvent.emit(item);
     }
+
+    // private getGroupFromItem(item: string): TaskGroup {
+    //     for (const group of this.groups) {
+    //         if (group.items.includes(item)) {
+    //             return group;
+    //         }
+    //     }
+    // }
 
     // Function to add a new group and updates the local storage
     addGroup(group: TaskGroup): void {
@@ -139,6 +162,20 @@ export class GroupTaskService {
         });
 
         this.updateStorage();
+    }
+
+    editGroup(group: TaskGroup): void {
+        console.log('editGroup service');
+        this.editGroupEvent.emit(group);
+    }
+
+    inputValidationGroup(newgroup: TaskGroup): boolean {
+        for (const group of this.groups) {
+            if (group.name === newgroup.name) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

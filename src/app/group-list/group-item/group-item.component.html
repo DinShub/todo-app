@@ -1,5 +1,5 @@
 <!-- The group item -->
 <li>
-    <h3 style="display: inline;">{{ group.name }}</h3>
-    <p *ngFor="let item of group.items" (click)="itemSelected(item)" [style.color]="getColor(item)">{{ item }}</p>
+    <h3 style="display: inline;" (click)="groupSelected()">{{ group.name }}</h3>
+    <p *ngFor="let item of group.items" (click)="itemSelected(item)" [ngClass]="getColor(item)">{{ item }}</p>
 </li>

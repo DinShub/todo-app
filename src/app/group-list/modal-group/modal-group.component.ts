@@ -10,54 +10,47 @@ import { TaskGroup } from '../grouptask.model';
 })
 export class ModalGroupComponent implements OnInit{
 
-  colors: string[] = [];
-
   group: TaskGroup;
-
-  color = '';
-
+  nameError = false;
   constructor(private modalService: NgbModal, private groupTaskService: GroupTaskService, private renderer: Renderer2 ) { }
 
-  ngOnInit(): void {
-    this.colors = this.groupTaskService.getColors();
-  }
+  ngOnInit(): void {}
 
   open(content): void {
     this.modalService.open(content);
   }
 
-  test(something: ElementRef): void {
+  addInput(something: ElementRef): void {
     const input = document.createElement('input');
     // input.style.marginRight = '20px';
     // input.style.marginTop = '10px';
     const inputArea = document.querySelector('#itemsinput');
     input.classList.add('subGroupInput');
     input.style.marginLeft = '167px';
-    input.style.marginBottom = "20px";
+    input.style.marginBottom = '20px';
     inputArea.appendChild(input);
     // something.nativeElement.appendChild(input);
   }
 
-  chooseColor(color: string): void {
-    this.color = color;
-  }
-
   submit(content, form): void {
-    console.log(content);
-    console.log(form.childNodes);
-    console.log(form.querySelector('#itemsinput').childNodes);
-    const groupName = form.querySelector('#groupName').value;
-
+    const newGroup: TaskGroup = {name: '', tasks: [], items: []};
+    const newName = form.querySelector('#groupName');
+    newGroup.name = newName.value;
     const itemsArr: string[] = [];
     for (const item of form.querySelector('#itemsinput').childNodes) {
       itemsArr.push(item.value);
     }
-    console.log(itemsArr);
+    newGroup.items = [...itemsArr];
+    if (this.groupTaskService.inputValidationGroup(newGroup)) {
+      this.group = newGroup;
+      this.groupTaskService.addGroup(this.group);
+      this.modalService.dismissAll();
+    }
+    else {
+      console.log('nameError');
+      this.nameError = true;
+    }
 
-    this.group = {name: groupName, items: itemsArr, tasks: [], color: this.color};
-    this.modalService.dismissAll();
-
-    this.groupTaskService.addGroup(this.group);
   }
 
 }

@@ -1,6 +1,7 @@
 <!-- The Search bar maybe a new component?? -->
 <div class="search-div">
-    <input type="text" class="form-control search" style="font-family: 'Font Awesome 5';font-weight: 900;" placeholder="&#xf002; Search Here">
+    <input type="text" id="searchBar" class="form-control search"
+        style="font-family: 'Font Awesome 5';font-weight: 900;" placeholder="&#xf002; Search Here" (keyup)="updateSearchTerm($event.target.value)">
 
     <!-- The modal to add tasks TODO: Add the functionality -->
     <app-modal-task class="add-task" [group]="group"></app-modal-task>
@@ -10,20 +11,21 @@
 <div class="task-list">
 
     <!-- The Group Name TODO: Take it from the group list -->
-    <h2 *ngIf="group">{{ group.name }}</h2>
-    
+    <h2 *ngIf="group">{{ group.name }} <button class="btn btn-outline-danger" (click)="editGroup()"><i
+                class="far fa-edit"></i></button> </h2>
+    <app-modal-group-view></app-modal-group-view>
     <!-- The Task list actual TODO: add functionality to get the tasks from the group -->
     <ul>
-        <li (click)="onClick($event)">All</li>
+        <li (click)="onClick($event)" class="li-active">All</li>
         <li (click)="onClick($event)">Not Yet Completed</li>
-        <li (click)="onClick($event)">Finished</li>
+        <li (click)="onClick($event)">Done</li>
     </ul>
     <hr>
 
-    <div class="row" *ngIf="group">
-        <div class="col-4" *ngFor="let elTask of group.tasks"><app-task [task] = "elTask"></app-task></div>
+    <div class="row row-cols-4" *ngIf="group">
+        <div class="col" *ngFor="let elTask of tasksToShow">
+            <app-task [task]="elTask"></app-task>
+        </div>
     </div>
+
 </div>
-
-
-

@@ -1,8 +1,8 @@
-<ng-template #groupmodal let-modal>
+<ng-template #editGroup let-modal>
 
     <!-- The Modal Header -->
     <div class="modal-header">
-        <h4 class="modal-title">Add Group</h4>
+        <h4 class="modal-title">Edit Group</h4>
         <button class="btn btn-danger" (click)="modal.dismiss()">&times;</button>
     </div>
 
@@ -16,7 +16,7 @@
                 </div>
                 <label for="items" style="margin-top: 20px;">Sub Groups:</label><div class="addInput" (click)="addInput(itemsinput)"><i class="fas fa-plus"></i></div>
                 <div class="forInput" id='itemsinput'>
-                    <input type="text" class="subGroupInput">
+                    <input type="text" class="subGroupInput" value="{{group.items[0]}}">
                 </div>
             </div>
         </form>
@@ -25,12 +25,6 @@
     <!-- The Modal Footer -->
     <div class="modal-footer">
         <p *ngIf="nameError" style="color: red;">There is already a group with this name!</p>
-        <button class="btn btn-primary" (click)="submit(groupmodal, groupform)">Save</button>
+        <button class="btn btn-primary" (click)="submit(groupform)">Save</button>
     </div>
-
-
-
 </ng-template>
-<button class="btn btn-outline-danger" (click)="open(groupmodal)">
-    <i class="fas fa-plus"></i>
-</button>

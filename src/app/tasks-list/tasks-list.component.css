@@ -12,6 +12,8 @@
     display: inline;
 }
 
+
+
 .add-task {
     margin-left: 80px;
     position: fixed;
@@ -56,4 +58,14 @@ hr {
 
 .li-active {
     border-bottom: 1px solid red;
+}
+
+button {
+    margin-left: 10px;
+    font-size: 18px;
+    /* padding-left: 10px;
+    padding-right: 8px; */
+    padding: 5px 8px 5px 9px;
+    font-size: 15px;
+    text-decoration: none;
 }

@@ -1,6 +1,6 @@
-<div class="card">
-    <div class="card-body" (click)="viewTask($event)">
-        <app-task-view-modal #modal></app-task-view-modal>
+<div class="card" style="height: 172px;">
+    <div class="card-body"  (click)="viewTask($event)">
+        <app-task-view-modal [task]="task" #modal></app-task-view-modal>
         <h6 class="title" [ngClass]="getStatus()">{{ task.status | uppercase }}</h6>
         <h4 class="card-subtitle mb-2">{{ task.name }}</h4>
         <p class="card-subtitle-mb2 text-muted">{{ task.date | date:"MM/dd/yyyy HH:mm" }}</p>

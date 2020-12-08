@@ -5,7 +5,7 @@
      For loop to get all the groups from the var groups
      Each group spawns the app-group-item component -->
 <ul class="list-group">
-    <app-group-item class="group-list-item" *ngFor="let elGroup of groups" [group]="elGroup" (click)="chooseGroup(elGroup)" [ngClass]="elGroup.color"></app-group-item>
+    <app-group-item class="group-list-item" *ngFor="let elGroup of groups" [group]="elGroup" [ngClass]="checkSelected(elGroup)"></app-group-item>
 
 </ul>
 
