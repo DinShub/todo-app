@@ -4,15 +4,20 @@ import { Task } from './task.model';
 export class TaskService {
 
     // This is the TaskService
-    // Task array that holds all the tasks
+    //
+    // Events-
+    // viewTask -> Event that emits the task which was selected to be viewed
+    // updateTaskEvent -> Event that emits the updated task
+    // deleteTaskEvent -> Event that emits when a task was deleted and which task
+    //
+    // Functions-
+    // openTask(task) -> emits the task that is requested to be opened
+    // updateTask(task) -> emits the task that was updated
+    // deleteTask(task) -> emits the task that was deleted
 
     viewTask = new EventEmitter<Task>();
     updateTaskEvent = new EventEmitter<Task>();
     deleteTaskEvent = new EventEmitter<Task>();
-
-    // getTasks(): Task[] {
-    //     return this.tasks.slice();
-    // }
 
     openTask(task: Task): void {
         this.viewTask.emit(task);

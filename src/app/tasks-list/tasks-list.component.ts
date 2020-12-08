@@ -11,74 +11,87 @@ import { TaskService } from './task.service';
 })
 export class TasksListComponent implements OnInit, OnDestroy {
 
-  group: TaskGroup;
-  subscription: any;
+  // The current selected group
+  selectedGroup: TaskGroup;
+
+  // The chosen group event subscription
+  chosenGroupSubscription: any;
+
+  // The tasks we show after filtering
   tasksToShow: Task[] = [];
+
+  // The selected filter
   selectedFilter = 'all';
+
+  // The add group event subscription
   addGroupSub: any;
+
+  // The term we search in the search bar
   searchTerm = '';
 
   constructor(private groupTaskService: GroupTaskService, private taskService: TaskService) { }
 
   ngOnInit(): void {
     // The event to get the chosen group to display
-    this.subscription = this.groupTaskService.chosenGroupEvent.subscribe((newGroup: TaskGroup) => this.groupSelected(newGroup));
+    this.chosenGroupSubscription = this.groupTaskService.chosenGroupEvent.subscribe((newGroup: TaskGroup) => this.groupSelected(newGroup));
+    // The event to update the lists when a new group was added or modified
     this.addGroupSub = this.groupTaskService.addGroupEvent.subscribe(() => this.updateTasksToShow());
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.chosenGroupSubscription.unsubscribe();
     this.addGroupSub.unsubscribe();
   }
 
+  // When a new group was selected, we need to update it in this component
   groupSelected(newGroup: TaskGroup): void {
-    this.group = newGroup;
+    this.selectedGroup = newGroup;
+    // Update the taskToShow array when a new group was selected
     this.updateTasksToShow();
   }
 
-  // The function to highlight the selected category
-  onClick(ev: any): void {
-    console.log(ev.target.parentNode.children);
+  // The function to highlight the selected filter
+  highlightFilter(ev: any): void {
+    // console.log(ev.target.parentNode.children);
+
+    // loop through all the avaliable filters and making sure non are selected
     for (const child of ev.target.parentNode.children) {
       child.classList.remove('li-active');
     }
+
+    // Adding the active class to the selected filter
     ev.target.classList.add('li-active');
-    console.log(ev.target.innerText);
+    // console.log(ev.target.innerText);
+
+    // Updating the selected filter
     this.selectedFilter = ev.target.innerText.toLowerCase();
+
+    // Filtering the tasks
     this.updateTasksToShow();
   }
 
+  // When a group was edited, we need to update the list
   editGroup(): void {
-    console.log('edit group');
-    this.groupTaskService.editGroup(this.group);
+    // console.log('edit group');
+    this.groupTaskService.editGroup(this.selectedGroup);
   }
 
+  // Updating the tasks we need to show after filtering
   updateTasksToShow(): void {
-    // this.tasksToShow = this.group.tasks.filter(task => {
-    //   if (this.selectedFilter === 'all') {
-    //     return true;
-    //   } else if (this.selectedFilter === 'not yet completed' && task.status !== 'done') {
-    //     return true;
-    //   } else if (this.selectedFilter === 'done' && task.status === 'done') {
-    //     return true;
-    //   }
-    //   return false;
-    // });
-
-    // this.tasksToShow = this.tasksToShow.filter(task => this.groupTaskService.getItem() === task.item || this.groupTaskService.getItem() === '');
-
-    // this.tasksToShow = this.tasksToShow.filter(task => task.name.toLowerCase().includes(this.searchTerm));
-
-    this.tasksToShow = this.group.tasks.filter(task => this.checkFilters(task));
+    this.tasksToShow = this.selectedGroup.tasks.filter(task => this.checkFilters(task));
   }
 
+  // The event when the search bar was updated
   updateSearchTerm(newTerm: string): void {
     this.searchTerm = newTerm.toLowerCase();
     this.updateTasksToShow();
   }
 
+  // Checking if the task is answering the filter
   checkFilters(task: Task): boolean {
-    let rtnValue = false;
+    let rtnValue = false; // The boolean we return to know if we need the task
+
+    // checking if the task is answering the filters
     if (this.selectedFilter === 'all') {
       rtnValue = true;
     } else if (this.selectedFilter === 'not yet completed' && task.status !== 'done') {
@@ -87,12 +100,12 @@ export class TasksListComponent implements OnInit, OnDestroy {
       rtnValue = true;
     }
 
+    // checking if the item is part of the group
     if (this.groupTaskService.getItem() !== task.item && this.groupTaskService.getItem() !== '') {
       rtnValue = false;
     }
 
-
-
+    // If the task is answering all the filters and his name contains the search term, return true
     return rtnValue && task.name.toLowerCase().includes(this.searchTerm);
   }
 
