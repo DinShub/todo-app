@@ -170,9 +170,11 @@ export class GroupTaskService {
     }
 
     inputValidationGroup(newgroup: TaskGroup): boolean {
-        for (const group of this.groups) {
-            if (group.name === newgroup.name) {
-                return false;
+        if (this.groups) {
+            for (const group of this.groups) {
+                if (group.name === newgroup.name) {
+                    return false;
+                }
             }
         }
         return true;

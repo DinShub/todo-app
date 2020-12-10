@@ -78,7 +78,9 @@ export class TasksListComponent implements OnInit, OnDestroy {
 
   // Updating the tasks we need to show after filtering
   updateTasksToShow(): void {
-    this.tasksToShow = this.selectedGroup.tasks.filter(task => this.checkFilters(task));
+    if (this.selectedGroup && this.selectedGroup.tasks) {
+      this.tasksToShow = this.selectedGroup.tasks.filter(task => this.checkFilters(task));
+    }
   }
 
   // The event when the search bar was updated
